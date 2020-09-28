@@ -12,7 +12,8 @@ require('functions.php');
 </head>
 <body>
 <div class="titleBar">
-    <h1>Let's make some pour decisions!</h1>
+    <h1>Wine Collection</h1>
+    <p>Let's make some pour decisions!</p>
 </div>
 
 <div class="container">
