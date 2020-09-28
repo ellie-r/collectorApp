@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.31)
 # Database: wineCollection
-# Generation Time: 2020-09-28 20:40:58 +0000
+# Generation Time: 2020-09-28 20:47:00 +0000
 # ************************************************************
 
 
@@ -40,7 +40,7 @@ VALUES
 	(2,'Wolf Blass'),
 	(3,'McGuigan'),
 	(4,'Campo Viejo'),
-	(5,'Sainsbury'),
+	(5,'Sainsbury\'s'),
 	(6,'Waitrose'),
 	(7,'Laughing Llama'),
 	(8,'Yellow Tail');
