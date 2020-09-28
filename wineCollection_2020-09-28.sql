@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.31)
 # Database: wineCollection
-# Generation Time: 2020-09-28 10:59:48 +0000
+# Generation Time: 2020-09-28 12:15:32 +0000
 # ************************************************************
 
 
@@ -20,83 +20,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
-# Dump of table brands
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `brands`;
-
-CREATE TABLE `brands` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `NameOfBrand` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-LOCK TABLES `brands` WRITE;
-/*!40000 ALTER TABLE `brands` DISABLE KEYS */;
-
-INSERT INTO `brands` (`id`, `NameOfBrand`)
-VALUES
-	(1,'Bread & Butter'),
-	(2,'Wolf Blass'),
-	(3,'McGuigan'),
-	(4,'Campo Viejo'),
-	(5,'Sainsbury'),
-	(6,'Waitrose');
-
-/*!40000 ALTER TABLE `brands` ENABLE KEYS */;
-UNLOCK TABLES;
-
-
-# Dump of table Cost
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `Cost`;
-
-CREATE TABLE `Cost` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `cost` float DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-LOCK TABLES `Cost` WRITE;
-/*!40000 ALTER TABLE `Cost` DISABLE KEYS */;
-
-INSERT INTO `Cost` (`id`, `cost`)
-VALUES
-	(1,7.99),
-	(2,15.99),
-	(3,8),
-	(4,7.5);
-
-/*!40000 ALTER TABLE `Cost` ENABLE KEYS */;
-UNLOCK TABLES;
-
-
-# Dump of table country
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `country`;
-
-CREATE TABLE `country` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `country` varchar(400) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-LOCK TABLES `country` WRITE;
-/*!40000 ALTER TABLE `country` DISABLE KEYS */;
-
-INSERT INTO `country` (`id`, `country`)
-VALUES
-	(1,'Australia'),
-	(2,'Spain'),
-	(3,'South Africa'),
-	(4,'Argentina');
-
-/*!40000 ALTER TABLE `country` ENABLE KEYS */;
-UNLOCK TABLES;
-
-
 # Dump of table wine
 # ------------------------------------------------------------
 
@@ -104,12 +27,12 @@ DROP TABLE IF EXISTS `wine`;
 
 CREATE TABLE `wine` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `variety` varchar(100) DEFAULT NULL,
-  `tones` varchar(8000) DEFAULT NULL,
-  `brand_id` int(11) DEFAULT NULL,
-  `cost_id` int(11) DEFAULT NULL,
-  `country_of_origin` int(11) DEFAULT NULL,
-  `img_location` varchar(8000) DEFAULT NULL,
+  `variety` varchar(100) NOT NULL DEFAULT '',
+  `tones` text NOT NULL,
+  `brand_id` int(11) NOT NULL,
+  `cost_id` int(11) NOT NULL,
+  `country_of_origin` int(11) NOT NULL,
+  `img_location` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
