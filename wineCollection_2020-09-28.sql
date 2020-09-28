@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.31)
 # Database: wineCollection
-# Generation Time: 2020-09-28 12:15:32 +0000
+# Generation Time: 2020-09-28 12:22:49 +0000
 # ************************************************************
 
 
@@ -18,6 +18,83 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+# Dump of table brands
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `brands`;
+
+CREATE TABLE `brands` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `nameOfBrand` varchar(100) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+LOCK TABLES `brands` WRITE;
+/*!40000 ALTER TABLE `brands` DISABLE KEYS */;
+
+INSERT INTO `brands` (`id`, `nameOfBrand`)
+VALUES
+	(1,'Bread & Butter'),
+	(2,'Wolf Blass'),
+	(3,'McGuigan'),
+	(4,'Campo Viejo'),
+	(5,'Sainsbury'),
+	(6,'Waitrose');
+
+/*!40000 ALTER TABLE `brands` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table cost
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `cost`;
+
+CREATE TABLE `cost` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `cost` float NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+LOCK TABLES `cost` WRITE;
+/*!40000 ALTER TABLE `cost` DISABLE KEYS */;
+
+INSERT INTO `cost` (`id`, `cost`)
+VALUES
+	(1,7.99),
+	(2,15.99),
+	(3,8),
+	(4,7.5);
+
+/*!40000 ALTER TABLE `cost` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table country
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `country`;
+
+CREATE TABLE `country` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `country` varchar(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+LOCK TABLES `country` WRITE;
+/*!40000 ALTER TABLE `country` DISABLE KEYS */;
+
+INSERT INTO `country` (`id`, `country`)
+VALUES
+	(1,'Australia'),
+	(2,'Spain'),
+	(3,'South Africa'),
+	(4,'Argentina');
+
+/*!40000 ALTER TABLE `country` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table wine
