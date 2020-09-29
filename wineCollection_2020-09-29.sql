@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.31)
 # Database: wineCollection
-# Generation Time: 2020-09-29 07:49:02 +0000
+# Generation Time: 2020-09-29 11:54:12 +0000
 # ************************************************************
 
 
@@ -87,7 +87,7 @@ CREATE TABLE `wine` (
   `brand_id` int(11) NOT NULL,
   `cost` float(11,2) NOT NULL,
   `country_of_origin` int(11) NOT NULL,
-  `img_location` text NOT NULL,
+  `img_location` text,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
