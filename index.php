@@ -18,11 +18,8 @@ require('functions.php');
 
 <div class="container">
     <?php
-    $db = connect_to_db('wineCollection');
-    $query = $db->prepare('SELECT `variety`, `tones`, `cost`, `nameOfBrand`, `country`, `wine`.`img_location` FROM `wine` JOIN `brands` ON `wine`.`brand_id` = `brands`.`id` JOIN `country` ON `wine`.`country_of_origin`=`country`.`id`;');
-    $query->execute();
-    $wines=$query->fetchAll();
-
+    $wines=connect_to_db_and_extract_items('wineCollection');
+//    var_dump($wines);
     echo addItemToHTML($wines); ?>
 
 
