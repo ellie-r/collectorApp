@@ -20,7 +20,8 @@ require('functions.php');
     <?php
     $db = connect_to_db('wineCollection');
     $wines = extract_from_db($db);
-    echo addItemToHTML($wines); ?>
+    $html_and_errors = addItemToHTML($wines);
+    echo $html_and_errors['result']; ?>
 
 
 </div>
