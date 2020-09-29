@@ -7,7 +7,7 @@ class Functions extends TestCase {
     {
         $input = [['variety' => 'merlot', 'tones' => 'oaky afterbirth', 'cost' => '7.99',
                     'nameOfBrand' => 'generic name', 'country' => 'australia', 'img_location' => 'folder/file.png']];
-        $expectedOutput = ['result' => '<div class = "itemContainer">
+        $expectedOutput = '<div class = "itemContainer">
                 <h2>Variety: merlot</h2>
                 <p>Brand: generic name</p>
                 <p>Cost: £7.99</p>
@@ -16,7 +16,7 @@ class Functions extends TestCase {
                 <div class="itemImg">
                     <img src="folder/file.png" alt="image of wine">
                 </div>
-            </div>', 'error' => ''];
+            </div>';
 
         $result = addItemToHTML($input);
 
@@ -27,7 +27,7 @@ class Functions extends TestCase {
     {
         $input = [['variety' => NULL, 'tones' => 'oaky afterbirth', 'cost' => '7.99',
             'nameOfBrand' => 'generic name', 'country' => 'australia', 'img_location' => 'folder/file.png']];
-        $expectedOutput = ['result' => '', 'error' => 'Error can\'t find key'];
+        $expectedOutput = '';
 
         $result = addItemToHTML($input);
 
@@ -38,7 +38,7 @@ class Functions extends TestCase {
     {
         $input = [['variety' => 'merlot', 'tones' => NULL, 'cost' => '7.99',
             'nameOfBrand' => 'generic name', 'country' => 'australia', 'img_location' => 'folder/file.png']];
-        $expectedOutput = ['result' => '', 'error' => 'Error can\'t find key'];
+        $expectedOutput = '';
 
         $result = addItemToHTML($input);
 
@@ -49,7 +49,7 @@ class Functions extends TestCase {
     {
         $input = [['variety' => 'merlot', 'tones' => 'oaky afterbirth', 'cost' => NULL,
             'nameOfBrand' => 'generic name', 'country' => 'australia', 'img_location' => 'folder/file.png']];
-        $expectedOutput = ['result' => '', 'error' => 'Error can\'t find key'];
+        $expectedOutput = '';
 
         $result = addItemToHTML($input);
 
@@ -60,7 +60,7 @@ class Functions extends TestCase {
     {
         $input = [['variety' => 'merlot', 'tones' => 'oaky afterbirth', 'cost' => '7.99', 'nameOfBrand' => NULL,
             'country' => 'australia', 'img_location' => 'folder/file.png']];
-        $expectedOutput = ['result' => '', 'error' => 'Error can\'t find key'];
+        $expectedOutput = '';
 
         $result = addItemToHTML($input);
 
@@ -71,7 +71,7 @@ class Functions extends TestCase {
     {
         $input = [['variety' => 'merlot', 'tones' => 'oaky afterbirth', 'cost' => '7.99',
             'nameOfBrand' => 'generic name', 'country' => NULL, 'img_location' => 'folder/file.png']];
-        $expectedOutput = ['result' => '', 'error' => 'Error can\'t find key'];
+        $expectedOutput = '';
 
         $result = addItemToHTML($input);
 
@@ -82,7 +82,7 @@ class Functions extends TestCase {
     {
         $input = [['variety' => 'merlot', 'tones' => 'oaky afterbirth', 'cost' => '7.99',
             'nameOfBrand' => 'generic name', 'country' => 'australia', 'img_location' => NULL]];
-        $expectedOutput = ['result' => '<div class = "itemContainer">
+        $expectedOutput = '<div class = "itemContainer">
                 <h2>Variety: merlot</h2>
                 <p>Brand: generic name</p>
                 <p>Cost: £7.99</p>
@@ -91,7 +91,7 @@ class Functions extends TestCase {
                 <div class="itemImg">
                     <img src="imgs/plain-bottle.png" alt="image of wine">
                 </div>
-            </div>', 'error' => ''];
+            </div>';
 
         $result = addItemToHTML($input);
 
@@ -103,7 +103,7 @@ class Functions extends TestCase {
             'nameOfBrand' => 'generic name', 'country' => 'australia', 'img_location' => 'folder/file.png'],
             ['variety' => 'blah', 'tones' => 'oaky afterbirth2', 'cost' => '7.99',
             'nameOfBrand' => 'generic name', 'country' => NULL, 'img_location' => 'location.png']];
-        $expectedOutput = ['result' => '<div class = "itemContainer">
+        $expectedOutput = '<div class = "itemContainer">
                 <h2>Variety: merlot</h2>
                 <p>Brand: generic name</p>
                 <p>Cost: £7.99</p>
@@ -112,7 +112,7 @@ class Functions extends TestCase {
                 <div class="itemImg">
                     <img src="folder/file.png" alt="image of wine">
                 </div>
-            </div>', 'error' => 'Error can\'t find key'];
+            </div>';
 
         $result = addItemToHTML($input);
 

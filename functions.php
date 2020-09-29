@@ -31,21 +31,17 @@ function extract_from_db(PDO $db): array {
  * takes items from an array and returns the values within HTML
  * @param array $dataFromQuery, array of data from database
  *
- * @return array, return an array with a key of result and value of the string of html and a key or error and value
- *  of any error that occured
+ * @return string, return an string of html
  *
  */
 
-function addItemToHTML(array $dataFromQuery): array
+function addItemToHTML(array $dataFromQuery): string
 {
     $result = '';
-    $error = '';
     foreach ($dataFromQuery as $itemFromQuery) {
-        if ((!isset($itemFromQuery['variety'])) || (!isset($itemFromQuery['nameOfBrand']))
-            || (!isset($itemFromQuery['cost'])) || (!isset($itemFromQuery['country']))
-            || (!isset($itemFromQuery['tones']))) {
-            $error = 'Error can\'t find key';
-        } else {
+        if ((isset($itemFromQuery['variety'])) && (isset($itemFromQuery['nameOfBrand']))
+            && (isset($itemFromQuery['cost'])) && (isset($itemFromQuery['country']))
+            && (isset($itemFromQuery['tones']))) {
             if (!isset($itemFromQuery['img_location'])) {
                 $itemFromQuery['img_location'] = 'imgs/plain-bottle.png';
             }
@@ -62,6 +58,5 @@ function addItemToHTML(array $dataFromQuery): array
             </div>';
         }
     }
-    $result_array = ['result' => $result, 'error'=> $error];
-    return $result_array;
+    return $result;
 }
