@@ -20,9 +20,9 @@ function connect_to_db($dbName)
  *
  */
 function extract_from_db(PDO $db): array {
-    $query = $db->prepare('SELECT `variety`, `tones`, `cost`, `nameOfBrand`, `country`,
-            `wine`.`img_location` FROM `wine` JOIN `brands` ON `wine`.`brand_id` = `brands`.`id` JOIN `country` 
-            ON `wine`.`country_of_origin`=`country`.`id`;');
+    $query = $db->prepare('SELECT `variety`, `tones`, `cost`, `nameOfBrand`, `region`,
+            `wine`.`img_location` FROM `wine` JOIN `brands` ON `wine`.`brand_id` = `brands`.`id` JOIN `regions` 
+            ON `wine`.`region_of_origin`=`regions`.`id`;');
     $query->execute();
     return $query->fetchAll();
 }
@@ -43,7 +43,7 @@ function addItemToHTML(array $dataFromQuery): string
             (isset($itemFromQuery['variety'])) &&
             (isset($itemFromQuery['nameOfBrand'])) &&
             (isset($itemFromQuery['cost'])) &&
-            (isset($itemFromQuery['country'])) &&
+            (isset($itemFromQuery['region'])) &&
             (isset($itemFromQuery['tones']))
         ) {
             if (!isset($itemFromQuery['img_location'])) {
@@ -54,7 +54,7 @@ function addItemToHTML(array $dataFromQuery): string
                 <h2>Variety: ' . $itemFromQuery['variety'] . '</h2>
                 <p>Brand: ' . $itemFromQuery['nameOfBrand'] . '</p>
                 <p>Cost: £' . $itemFromQuery['cost'] . '</p>
-                <p>Country of Origin: ' . $itemFromQuery['country'] . '</p>
+                <p>Region of Origin: ' . $itemFromQuery['region'] . '</p>
                 <p>Tones: ' . $itemFromQuery['tones'] . '</p>
                 <div class="itemImg">
                     <img src="' . $itemFromQuery['img_location'] . '" alt="image of wine">
