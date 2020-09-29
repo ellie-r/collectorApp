@@ -1,15 +1,28 @@
 <?php
 /**
- * connects to the database and extracts all items required and returns in an associative array
+ * connects to the database and sets the attribute
  * @param $dbName, the name of the db to connect to
  *
- * @return array, the array of items in the collection
+ * @return PDO, the db connection
  */
-function connect_to_db_and_extract_items($dbName)
+function connect_to_db($dbName)
 {
-    $db = new PDO('mysql:host=db;dbname=' . $dbName, 'root', 'password'); //initialise the db connection
+    $db = new PDO('mysql:host=db;dbname=' . $dbName, 'root', 'password');
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    $query = $db->prepare('SELECT `variety`, `tones`, `cost`, `nameOfBrand`, `country`, `wine`.`img_location` FROM `wine` JOIN `brands` ON `wine`.`brand_id` = `brands`.`id` JOIN `country` ON `wine`.`country_of_origin`=`country`.`id`;');
+    return $db;
+}
+
+/**
+ * using the db connection provided select the items from the db and return as an associative array
+ * @param PDO $db, the database to extract from
+ *
+ * @return array, the associative array of the items
+ *
+ */
+function extract_from_db(PDO $db): array {
+    $query = $db->prepare('SELECT `variety`, `tones`, `cost`, `nameOfBrand`, `country`,
+            `wine`.`img_location` FROM `wine` JOIN `brands` ON `wine`.`brand_id` = `brands`.`id` JOIN `country` 
+            ON `wine`.`country_of_origin`=`country`.`id`;');
     $query->execute();
     return $query->fetchAll();
 }
@@ -19,14 +32,18 @@ function connect_to_db_and_extract_items($dbName)
  * @param array $dataFromQuery, array of data from database
  *
  * @return string, return string of html
+ *
  */
 
 function addItemToHTML(array $dataFromQuery): string
 {
     $result = '';
     foreach ($dataFromQuery as $itemFromQuery) {
-        if ((!isset($itemFromQuery['variety'])) || (!isset($itemFromQuery['nameOfBrand'])) || (!isset($itemFromQuery['cost'])) || (!isset($itemFromQuery['country'])) || (!isset($itemFromQuery['tones']))) {
-            $result .= 'Error can\'t find key';
+        if ((!isset($itemFromQuery['variety'])) || (!isset($itemFromQuery['nameOfBrand']))
+            || (!isset($itemFromQuery['cost'])) || (!isset($itemFromQuery['country']))
+            || (!isset($itemFromQuery['tones']))) {
+            $result = 'Error can\'t find key';
+            break;
         } else {
             if (!isset($itemFromQuery['img_location'])) {
                 $itemFromQuery['img_location'] = 'imgs/plain-bottle.png';
@@ -42,7 +59,6 @@ function addItemToHTML(array $dataFromQuery): string
                     <img src="' . $itemFromQuery['img_location'] . '" alt="image of wine">
                 </div>
             </div>';
-
         }
     }
     return $result;

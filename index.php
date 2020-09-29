@@ -18,8 +18,8 @@ require('functions.php');
 
 <div class="container">
     <?php
-    $wines=connect_to_db_and_extract_items('wineCollection');
-//    var_dump($wines);
+    $db = connect_to_db('wineCollection');
+    $wines = extract_from_db($db);
     echo addItemToHTML($wines); ?>
 
 
