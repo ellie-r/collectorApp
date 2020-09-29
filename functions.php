@@ -39,9 +39,13 @@ function addItemToHTML(array $dataFromQuery): string
 {
     $result = '';
     foreach ($dataFromQuery as $itemFromQuery) {
-        if ((isset($itemFromQuery['variety'])) && (isset($itemFromQuery['nameOfBrand']))
-            && (isset($itemFromQuery['cost'])) && (isset($itemFromQuery['country']))
-            && (isset($itemFromQuery['tones']))) {
+        if (
+            (isset($itemFromQuery['variety'])) &&
+            (isset($itemFromQuery['nameOfBrand'])) &&
+            (isset($itemFromQuery['cost'])) &&
+            (isset($itemFromQuery['country'])) &&
+            (isset($itemFromQuery['tones']))
+        ) {
             if (!isset($itemFromQuery['img_location'])) {
                 $itemFromQuery['img_location'] = 'imgs/plain-bottle.png';
             }
