@@ -13,7 +13,7 @@ $regions = extract_regions_from_db($db);
     <link href="normalise.css" type="text/css" rel="stylesheet">
     <link href="style.css" type="text/css" rel="stylesheet">
 </head>
-<body class="pageContainer">
+<body class = "pageContainer">
 <div class = "formContainer">
     <h1>
         Add another wine to your collection!
