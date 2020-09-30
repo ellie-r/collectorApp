@@ -89,7 +89,7 @@ function extract_regions_from_db(PDO $db): array {
 }
 
 /**
- * adds the array of values from which came from a form into the db
+ * adds the array of values to the db after changing the data types to match the db structure
  * @param array $postArray, the array of values you want to add into the db
  * @param PDO $db , the db you want to add the values to
  */
