@@ -95,7 +95,6 @@ function extract_regions_from_db(PDO $db): array {
  */
 function add_new_item_to_db(array $postArray,PDO $db) {
     $query = $db->prepare('INSERT INTO `wine` (`variety`, `tones`, `brand_id`, `cost`, `region_of_origin`) 
-            VALUES (:variety, :tones, :brandId , :cost, :regionId);');
-    $query->execute(['variety' => $postArray['variety'], 'tones' => $postArray['tones'],
-            'brandId' => $postArray['brand'], 'cost' => $postArray['cost'], 'regionId' => $postArray['region'] ]);
+            VALUES (:variety, :tones, :brand , :cost, :region);');
+    $query->execute($postArray);
 }
