@@ -64,3 +64,25 @@ function addItemToHTML(array $dataFromQuery): string
     }
     return $result;
 }
+
+function extract_brands_from_db($db): array {
+    $query = $db->prepare('SELECT `id`,`nameOfBrand` FROM `brands`;');
+    $query->execute();
+    return $query->fetchAll();
+}
+
+function extract_regions_from_db($db): array {
+    $query = $db->prepare('SELECT `id`,`region` FROM `regions`;');
+    $query->execute();
+    return $query->fetchAll();
+}
+
+
+function add_new_item_to_db($postArray, $db) {
+    settype($postArray['brand'], "integer");
+    settype($postArray['cost'], "float");
+    settype($postArray['region'], "integer");
+    $query = $db->prepare('INSERT INTO `wine` (`variety`, `tones`, `brand_id`, `cost`, `region_of_origin`) VALUES (?,?,?,?,?);');
+    $query->execute([$postArray['variety'], $postArray['tones'], $postArray['brand'], $postArray['cost'], $postArray['region'] ]);
+
+}

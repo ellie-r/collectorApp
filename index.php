@@ -12,8 +12,11 @@ require('functions.php');
 </head>
 <body>
 <div class="titleBar">
-    <h1>Wine Collection</h1>
-    <p>Let's make some pour decisions!</p>
+    <div>
+        <h1>Wine Collection</h1>
+        <p>Let's make some pour decisions!</p>
+    </div>
+    <a href="addNewWine.php">Add more Wine</a>
 </div>
 
 <div class="container">
