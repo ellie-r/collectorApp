@@ -34,7 +34,6 @@ function extract_from_db(PDO $db): array {
  * @return string, return an string of html
  *
  */
-
 function addItemToHTML(array $dataFromQuery): string
 {
     $result = '';
@@ -65,24 +64,39 @@ function addItemToHTML(array $dataFromQuery): string
     return $result;
 }
 
-function extract_brands_from_db($db): array {
+/**
+ * extracts the brands and their ids from the database and returns them in an associative array
+ * @param PDO $db, the database to extract from
+ *
+ * @return array array of the brands and their ids
+ */
+function extract_brands_from_db(PDO $db): array {
     $query = $db->prepare('SELECT `id`,`nameOfBrand` FROM `brands`;');
     $query->execute();
     return $query->fetchAll();
 }
 
-function extract_regions_from_db($db): array {
+/**
+ * extracts the regions and their ids from
+ * @param PDO $db, the database to extract from the database and returns them in an associative array
+ *
+ * @return array array of the regions and their ids
+ */
+function extract_regions_from_db(PDO $db): array {
     $query = $db->prepare('SELECT `id`,`region` FROM `regions`;');
     $query->execute();
     return $query->fetchAll();
 }
 
-
-function add_new_item_to_db($postArray, $db) {
+/**
+ * adds the array of values from which came from a form into the db
+ * @param array $postArray, the array of values you want to add into the db
+ * @param PDO $db , the db you want to add the values to
+ */
+function add_new_item_to_db(array $postArray,PDO $db) {
     settype($postArray['brand'], "integer");
     settype($postArray['cost'], "float");
     settype($postArray['region'], "integer");
     $query = $db->prepare('INSERT INTO `wine` (`variety`, `tones`, `brand_id`, `cost`, `region_of_origin`) VALUES (?,?,?,?,?);');
     $query->execute([$postArray['variety'], $postArray['tones'], $postArray['brand'], $postArray['cost'], $postArray['region'] ]);
-
 }
