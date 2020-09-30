@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Cuprum:wght@400;700&family=Kaushan+Script&display=swap');
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	background: url('imgs/2.jpg') no-repeat center center fixed;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+	font-size: 62.5%;
+	font-family: "Cuprum", sans-serif;
+}
+
+.titleBar h1 {
+	text-align: center;
+	font-size: 6rem;
+	margin: 8px;
+	padding-top: 10px;
+}
+
+.titleBar p {
+	text-align: center;
+	font-family: 'Kaushan Script', cursive;
+	font-size: 3rem;
+	padding: 0;
+	margin: 0;
+	color: rgba(0,0,0,0.8);
+}
+
+.container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	font-size: 1rem;
+}
+
+.itemContainer {
+	margin: 20px;
+	border-radius: 30px;
+	box-shadow: 3px 3px 7px 8px rgba(0,0,0,0.5);
+	width: 25%;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background: rgba(255, 255, 255, 0.5);
+}
+
+.itemContainer  h2  {
+	font-weight: 700;
+}
+
+.itemContainer  p  {
+	margin: 5px 25px;
+}
+
+.itemImg {
+	align-self: center;
+}
+
+.itemImg img{
+	height: 300px;
+}
