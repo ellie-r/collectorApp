@@ -1,6 +1,6 @@
 <?php
 require('functions.php');
-$db = connect_to_db('wineCollection');
+$db = connect_to_db('wine_collection');
 $brands = extract_brands_from_db($db);
 $regions = extract_regions_from_db($db);
 ?>

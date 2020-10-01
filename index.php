@@ -21,7 +21,7 @@ require('functions.php');
 
 <div class="container">
     <?php
-    $db = connect_to_db('wineCollection');
+    $db = connect_to_db('wine_collection');
     $wines = extract_from_db($db);
     echo addItemToHTML($wines);
     ?>

@@ -6,7 +6,7 @@ if (isset($_POST['variety']) &&
     isset($_POST['cost']) &&
     isset($_POST['region'])
 ) {
-    $db = connect_to_db('wineCollection');
+    $db = connect_to_db('wine_collection');
     add_new_item_to_db($_POST, $db);
     header("Location: index.php");
     exit();

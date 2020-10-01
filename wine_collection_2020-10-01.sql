@@ -6,8 +6,8 @@
 # https://github.com/sequelpro/sequelpro
 #
 # Host: 127.0.0.1 (MySQL 5.7.31)
-# Database: wineCollection
-# Generation Time: 2020-09-29 18:06:00 +0000
+# Database: wine_collection
+# Generation Time: 2020-10-01 08:52:30 +0000
 # ************************************************************
 
 
@@ -43,7 +43,15 @@ VALUES
 	(5,'Sainsbury\'s'),
 	(6,'Waitrose'),
 	(7,'Laughing Llama'),
-	(8,'Yellow Tail');
+	(8,'Yellow Tail'),
+	(9,'Barefoot'),
+	(10,'Hardys Crest'),
+	(11,'Casillero Del Diablo'),
+	(12,'Kumala'),
+	(13,'Dark Horse'),
+	(14,'I Heart'),
+	(15,'The Straw Hat'),
+	(16,'First Cape');
 
 /*!40000 ALTER TABLE `brands` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -70,7 +78,12 @@ VALUES
 	(3,'South Africa'),
 	(4,'Argentina'),
 	(5,'Chile'),
-	(6,'California');
+	(6,'California'),
+	(7,'Italy'),
+	(8,'France'),
+	(9,'New Zealand'),
+	(10,'Hungary'),
+	(11,'Germany');
 
 /*!40000 ALTER TABLE `regions` ENABLE KEYS */;
 UNLOCK TABLES;
